@@ -1602,8 +1602,8 @@ https?:\/\/helper\.2bulu\.com\/(greenPea\/queryTasks|proSpecial\/allData|saveSpl
 ^https:\/\/p0\.pipi\.cn\/adAdmin\/\w+\.(jpg|png)\?imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) url reject-dict
 
 # > 每日精选
-# http:\/\/dili.sqcosmos.com\/jiekou\/mains\/p\d+.html url jsonjq-response-body '.album |= map(select(.id != "4154" and .id != "4165"))'
-# http:\/\/dili.sqcosmos.com\/jiekou\/endpage\/ad url reject-dict
+http:\/\/dili\.sqcosmos\.com\/jiekou\/mains\/p\d+\.html url jsonjq-response-body '\.album |= map(select(\.id != "4154" and \.id != "4165"))'
+http:\/\/dili\.sqcosmos\.com\/jiekou\/endpage\/ad url reject-dict
 
 # > 美团 & 美团外卖
 # hostname = img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
@@ -2702,7 +2702,7 @@ https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig url reject
 # > 万达电影
 # hostname = misc-api-prd-mx.wandafilm.com
 # APP开屏广告
-^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api url jsonjq-response-body '.data.objects["OpenAPP-&-FlashAD"] = [] | .data.objects["InTheaters-&-BoxAD"] = []'
+^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api url jsonjq-response-body '\.data\.objects["OpenAPP-&-FlashAD"] = [] | \.data.objects["InTheaters-&-BoxAD"] = []'
 # 小程序弹窗广告
 ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI url response-body "WX_index_mp-&-boxAD" response-body "WX_index_mp-&-boxAD0"
 
